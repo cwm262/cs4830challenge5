@@ -2,53 +2,96 @@
 <html>
     <head>
         <title>Responsive Web Components</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
             body {
                 margin: 0;
+                font-family: sans-serif;
             }
-            .navbar {
-                height: 50px;
-                font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-                background-image: linear-gradient(#54ACD8, #3E6DA9);
-                border-bottom: 1px solid #999;
-                box-shadow: 0 0 5px #AAA;
+            header{
+              background: #4C8FEC;
+              width: 100%;
+              position: fixed;
+              height: 70px;
+              top: 0;
+              left: 0;
+              border-bottom: 2px solid black;
+              z-index: 100;
             }
-            .navbar > h1 {
-                float: left;
-                margin: 0;
-                padding: 3px 10px;
-                color: #EEE;
+
+            nav{
+              float: right;
             }
-            .navbar > ul {
-                float: right;
-                list-style: none;
-                padding-left: 0;
-                margin: 16px 0;
+
+            ul{
+              list-style: none;
             }
-            .navbar > ul > li {
+
+            li{
+              display: inline-block;
+              float: left;
+              padding: 10px;
+            }
+
+            a{
+              text-decoration: none;
+              color: black;
+            }
+
+            #menu{
+              display: hidden;
+              margin: 20px;
+              width: 40px;
+              height: 40px;
+              background: #4C8FEC url("menu.png") center;
+            }
+
+            #appTitle{
+              font-size: 20px;
+              float: left;
+              display: block;
+            }
+
+            @media screen and (max-width: 540px){
+              header{
+                position: absolute;
+              }
+              #menu{
                 display: inline-block;
-                margin: 0 20px;
+              }
+              nav ul, nav:active ul{
+                display: none;
+                position: absolute;
+                padding: 10px;
+                background: #4C8FEC;
+                top: 60px;
+                right: 20px;
+                width: 50%;
+                border: 2px solid black;
+              }
+              nav li{
+                text-align: center;
+                width: 100%;
+                margin: 0;
+              }
+              nav:hover ul{
+                display: block;
+              }
             }
-            .navbar > ul > li > a {
-                text-decoration: none;
-                color: #EEE;
-                padding: 0;
-            }
-            .group:after {
-              content: "";
-              display: table;
-              clear: both;
-            }
+
         </style>
     </head>
     <body>
-        <div class="navbar group">
-            <h1>Responsive App</h1>
+      <header>
+        <p id="appTitle">Responsive App</p>
+        <nav>
+            <a href="#" id="menu"></a>
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
-        </div>
+        </nav>
+      </header>
     </body>
 </html>
